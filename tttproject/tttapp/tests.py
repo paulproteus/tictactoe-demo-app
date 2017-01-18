@@ -47,5 +47,6 @@ class GameLogicTests(TestCase):
         self.assertFalse(gamelogic.is_playable_by_o('xx       '))
 
     def test_minimax(self):
-        self.assertEqual(gamelogic.minimax_value('ooo      ', True), 1)
-        #self.assertEqual(gamelogic.minimax_value('oo       '), 1)
+        self.assertEqual(gamelogic.minimax_value('ooo      ', 'o'), 1)
+        self.assertEqual(gamelogic.minimax_value('oo       ', 'o'), 1)
+        self.assertEqual(gamelogic.minimax_value('xx       ', 'x'), 0)

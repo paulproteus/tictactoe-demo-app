@@ -79,8 +79,20 @@ def is_playable_by_o(board):
     return (0 <= difference <= 1)
 
 
-def minimax_value(board, isPlayerO):
+def minimax_value(board, player_char):
     shallow_value = get_shallow_value(board)
 
     if shallow_value is not None:
         return shallow_value
+
+    if player_char == 'o':
+        best_so_far = 0  # assume that we'd lose, in the hopes of finding a winner
+        for board in get_next_board_options(board, player_char):
+            best_so_far = max(minimax_value(board, 'x'), best_so_far)
+        return best_so_far
+
+    else:
+        best_so_far = 1  # assume the opposite
+        for board in get_next_board_options(board, player_char):
+            best_so_far = min(minimax_value(board, 'o'), best_so_far)
+        return best_so_far
