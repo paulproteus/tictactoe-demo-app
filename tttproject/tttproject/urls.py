@@ -18,5 +18,6 @@ from tttapp import views
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^$', views.home),
     url(r'^selftest/', views.selftest),
 ]
