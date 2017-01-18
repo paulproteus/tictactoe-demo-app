@@ -68,3 +68,6 @@ class GameLogicTests(TestCase):
         # Test that we stop x from winning on the bottom row.
         self.assertEqual(gamelogic.get_best_move(' o     xx'),
                          ' o    oxx')
+        # Test that we successfully allow ourselves to win.
+        self.assertEqual(gamelogic.get_best_move('x   x  oo '),
+                         'x   x  ooo')
