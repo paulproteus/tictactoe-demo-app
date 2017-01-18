@@ -1,0 +1,7 @@
+Django==1.10.5
+flake8
+requests
+mock
+gunicorn
+dj-database-url
+psycopg2
