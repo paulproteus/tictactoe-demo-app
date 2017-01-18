@@ -41,9 +41,15 @@ class GameLogicTests(TestCase):
         ])
 
     def test_is_playable(self):
+        # The empty board is playable.
         self.assertTrue(gamelogic.is_playable_by_o('         '))
+        # A board with one 'o is not playable -- it would mean 'o'
+        # goes twice in a row.
         self.assertFalse(gamelogic.is_playable_by_o('o        '))
+        # A board with one 'x' is playable. It means 'o' went second.
         self.assertTrue(gamelogic.is_playable_by_o('x        '))
+        # A board with two 'x's is not playable. It means 'o' got
+        # their turn skipped.
         self.assertFalse(gamelogic.is_playable_by_o('xx       '))
 
     def test_minimax(self):

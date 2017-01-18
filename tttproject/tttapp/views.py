@@ -3,12 +3,14 @@ from . import gamelogic
 
 def home(request):
     board = request.GET.get('board', '')
-    if (not gamelogic.is_playable_by_o(board) or
-        not gamelogic.board_is_valid(board)
+    if (gamelogic.board_is_valid(board) and
+        gamelogic.is_playable_by_o(board) and
+        gamelogic.get_shallow_value(board) is None
     ):
+        return HttpResponse(gamelogic.get_best_move(board),
+                            content_type='text/plain')
+    else:
         return HttpResponse('Board invalid', status=400)
-    return HttpResponse(gamelogic.get_best_move(board),
-                        content_type='text/plain')
 
 def selftest(request):
     return HttpResponse('200 YAY!')

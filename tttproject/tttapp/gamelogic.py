@@ -73,6 +73,8 @@ def get_next_board_options(board, player):
 
 
 def is_playable_by_o(board):
+    '''Note that this only checks by character count. A complete check of
+    if the board is playable should also check that no one has won yet.'''
     o_count = board.count('o')
     x_count = board.count('x')
     difference = x_count - o_count
