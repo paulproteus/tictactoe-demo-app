@@ -80,6 +80,11 @@ def is_playable_by_o(board):
 
 
 def minimax_value(board, player_char):
+    # Consider implementing memoization for a substantial performance
+    # boost.
+    #
+    # Arguably the memoized results could be cached for the process
+    # lifetime, not just the one call to minimax_value().
     shallow_value = get_shallow_value(board)
 
     if shallow_value is not None:
