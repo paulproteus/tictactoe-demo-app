@@ -77,3 +77,10 @@ def is_playable_by_o(board):
     x_count = board.count('x')
     difference = x_count - o_count
     return (0 <= difference <= 1)
+
+
+def minimax_value(board, isPlayerO):
+    shallow_value = get_shallow_value(board)
+
+    if shallow_value is not None:
+        return shallow_value
