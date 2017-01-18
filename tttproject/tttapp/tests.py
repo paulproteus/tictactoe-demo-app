@@ -1,4 +1,4 @@
-from django.test import TestCase, Client
+from unittest import TestCase
 from tttapp import gamelogic
 
 class GameLogicTests(TestCase):

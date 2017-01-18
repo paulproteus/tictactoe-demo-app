@@ -11,6 +11,3 @@ def home(request):
                             content_type='text/plain')
     else:
         return HttpResponse('Board invalid', status=400)
-
-def selftest(request):
-    return HttpResponse('200 YAY!')
