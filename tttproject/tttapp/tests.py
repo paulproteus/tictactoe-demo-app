@@ -18,6 +18,8 @@ class GameLogicTests(TestCase):
             self.assertTrue(gamelogic.board_is_valid(valid_board))
 
 
-    #def test_find_o_winner(self):
-    #    board = TicTacToeBoard('ooo x x x')
-    #    self.assertEqual(board.get_shallow_value(), 1)
+    def test_find_winners(self):
+        self.assertEqual(gamelogic.get_shallow_value('ooo      '), 1)
+        self.assertEqual(gamelogic.get_shallow_value('xxx      '), 0)
+        self.assertEqual(gamelogic.get_shallow_value('o  o  o  '), 1)
+        self.assertEqual(gamelogic.get_shallow_value(' x  x  x '), 0)
