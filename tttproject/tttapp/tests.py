@@ -26,3 +26,16 @@ class GameLogicTests(TestCase):
         self.assertEqual(gamelogic.get_shallow_value('o   o   o'), 1)
         self.assertEqual(gamelogic.get_shallow_value('x   x   x'), 0)
         self.assertEqual(gamelogic.get_shallow_value('         '), None)
+
+    def test_generate_move_options(self):
+        self.assertEqual(gamelogic.get_next_board_options('         ', 'o'), [
+            'o        ',
+            ' o       ',
+            '  o      ',
+            '   o     ',
+            '    o    ',
+            '     o   ',
+            '      o  ',
+            '       o ',
+            '        o',
+        ])

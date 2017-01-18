@@ -62,3 +62,10 @@ def get_shallow_value(s):
         return 0
 
     return None
+
+def get_next_board_options(board, player):
+    space_locations = [x.start() for x in re.finditer('( )', board)]
+    ret = []
+    for space_location in space_locations:
+        ret.append(board[:space_location] + player + board[space_location + 1:])
+    return ret
