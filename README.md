@@ -21,6 +21,9 @@ permission. Lincoln and Drew have my permission!
 bash run_tests.sh
 ```
 
+- Dependencies are defined in `requirements.txt`. The `run_tests.sh` script
+  assumes you will create a virtualenv in `env/`.
+
 - Most code changes will be done in `tttproject/tttapp/gamelogic.py`.
 
 ### Tic-tac-toe implementation notes
