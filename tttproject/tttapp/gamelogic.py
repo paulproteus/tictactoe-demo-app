@@ -96,3 +96,18 @@ def minimax_value(board, player_char):
         for board in get_next_board_options(board, player_char):
             best_so_far = min(minimax_value(board, 'o'), best_so_far)
         return best_so_far
+
+
+def get_best_move(board):
+    # This assumes we are playing as 'o'.
+    #
+    # It picks the first move that can possibly lead to a win, and in
+    # the case that no move can possibly lead to a win, an arbitrary
+    # board.
+    for board in get_next_board_options(board, 'o'):
+        value = minimax_value(board, 'o')
+        if value == 1:
+            return board
+    # Otherwise, use the Python misfeature that 'board' is bound to the
+    # final iteration of the loop.
+    return board

@@ -47,6 +47,21 @@ class GameLogicTests(TestCase):
         self.assertFalse(gamelogic.is_playable_by_o('xx       '))
 
     def test_minimax(self):
+        # This board is winnable by the base case.
         self.assertEqual(gamelogic.minimax_value('ooo      ', 'o'), 1)
+        # This board is winnable by making one move.
         self.assertEqual(gamelogic.minimax_value('oo       ', 'o'), 1)
+        # This board is winnable (by x) by making one move.
         self.assertEqual(gamelogic.minimax_value('xx       ', 'x'), 0)
+        # The empty board can be won, in theory.
+        self.assertEqual(gamelogic.minimax_value('         ', 'o'), 1)
+
+    def test_get_best_move(self):
+        # This test comes from the specification.
+        self.assertEqual(gamelogic.get_best_move(' xxo  o  '),
+                         'oxxo  o  ')
+        # This test relies on an implementation detail, which is the
+        # fact that we always play in the top-left corner, i.e. the
+        # first way we can find that would lead to a victory.
+        self.assertEqual(gamelogic.get_best_move('         '),
+                         'o        ')
