@@ -1,20 +1,20 @@
 import re
 
-# Note: Having thought about it, we can use the string representation of
-# the board and store no state in a Board class. So we will use functions
-# rather than class methods.
+# Note: Having thought about it, we can use the string representation
+# of the board and store no state in a Board class. So we will use
+# functions rather than classes here.
 #
-# This has the upside that we can't write mutability problems into
-# this codebase.
-
+# This has the upside that we won't have mutability problems.
 def string_as_rows(s):
     return s[:3], s[3:6], s[6:]
+
 
 def board_is_valid(s):
     return (
         len(s) == 9 and
         re.match('^[ox ]+$', s)
     )
+
 
 def get_shallow_value(s):
     '''Return 1 if player "o" is the winner.
@@ -63,12 +63,14 @@ def get_shallow_value(s):
 
     return None
 
+
 def get_next_board_options(board, player):
     space_locations = [x.start() for x in re.finditer('( )', board)]
     ret = []
     for space_location in space_locations:
         ret.append(board[:space_location] + player + board[space_location + 1:])
     return ret
+
 
 def is_playable_by_o(board):
     o_count = board.count('o')
