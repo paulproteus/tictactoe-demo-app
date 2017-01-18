@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf.urls import url
 from tttapp import views
-from django.contrib import admin
 
 urlpatterns = [
     url(r'^$', views.home),

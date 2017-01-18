@@ -1,5 +1,6 @@
 from unittest import TestCase
-from tttapp import gamelogic
+from . import gamelogic
+
 
 class GameLogicTests(TestCase):
     def test_invalid_boards(self):
@@ -16,7 +17,6 @@ class GameLogicTests(TestCase):
                 'xoxxoxxox',
         ]:
             self.assertTrue(gamelogic.board_is_valid(valid_board))
-
 
     def test_find_winners(self):
         self.assertEqual(gamelogic.get_shallow_value('ooo      '), 1)

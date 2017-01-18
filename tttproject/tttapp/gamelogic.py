@@ -1,5 +1,6 @@
 import re
 
+
 # Note: Having thought about it, we can use the string representation
 # of the board and store no state in a Board class. So we will use
 # functions rather than classes here.
@@ -68,7 +69,8 @@ def get_next_board_options(board, player):
     space_locations = [x.start() for x in re.finditer('( )', board)]
     ret = []
     for space_location in space_locations:
-        ret.append(board[:space_location] + player + board[space_location + 1:])
+        ret.append(board[:space_location] + player +
+                   board[space_location + 1:])
     return ret
 
 
@@ -93,7 +95,7 @@ def minimax_value(board, player_char):
         return shallow_value
 
     if player_char == 'o':
-        best_so_far = 0  # assume that we'd lose, in the hopes of finding a winner
+        best_so_far = 0  # assume the worst; try to find a winner.
         for board in get_next_board_options(board, player_char):
             best_so_far = max(minimax_value(board, 'x'), best_so_far)
         return best_so_far
