@@ -25,6 +25,7 @@ def get_shallow_value(s):
 
     The function is called shallow value because it does no tree traversal.'''
     rows = string_as_rows(s)
+    # TODO: Refactor so that I don't hard-code 'x' and 'o' quite so much.
     # Check for row win condition
     if 'ooo' in rows:
         return 1
