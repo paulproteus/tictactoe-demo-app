@@ -30,7 +30,8 @@ bash run_tests.sh
 
 - This implementation treats a board state as string.
 
-- It uses minimax to find the best move to take.
+- It uses minimax to find the best move to take. It is somewhat slow and redoes a large
+  amount of work. Look for TODOs if you need to optimize for performance.
 
 ### Data validation notes
 
