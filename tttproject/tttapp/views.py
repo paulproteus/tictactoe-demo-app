@@ -7,7 +7,8 @@ def home(request):
         not gamelogic.board_is_valid(board)
     ):
         return HttpResponse('Board invalid', status=400)
-    return HttpResponse('ok')
+    return HttpResponse(gamelogic.get_best_move(board),
+                        content_type='text/plain')
 
 def selftest(request):
     return HttpResponse('200 YAY!')
