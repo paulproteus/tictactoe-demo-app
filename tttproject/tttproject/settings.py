@@ -25,9 +25,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', get_random_string(128))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if 'PORT' in os.environ:
-    DEBUG = True
-else:
     DEBUG = False
+else:
+    DEBUG = True
 
 if 'PORT' in os.environ:
     ALLOWED_HOSTS = ['*']
