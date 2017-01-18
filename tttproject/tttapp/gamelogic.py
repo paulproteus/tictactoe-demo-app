@@ -42,4 +42,22 @@ def get_shallow_value(s):
             rows[2][i] == 'x'):
             return 0
 
+    # Check for diagonal win conditions.
+    if (rows[0][0] == 'o' and
+        rows[1][1] == 'o' and
+        rows[2][2] == 'o'):
+        return 1
+    if (rows[0][0] == 'x' and
+        rows[1][1] == 'x' and
+        rows[2][2] == 'x'):
+        return 0
+    if (rows[2][0] == 'o' and
+        rows[1][1] == 'o' and
+        rows[0][2] == 'o'):
+        return 1
+    if (rows[2][0] == 'x' and
+        rows[1][1] == 'x' and
+        rows[0][2] == 'x'):
+        return 0
+
     return None
