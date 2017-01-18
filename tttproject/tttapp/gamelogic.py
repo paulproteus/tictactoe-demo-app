@@ -105,7 +105,7 @@ def get_best_move(board):
     # the case that no move can possibly lead to a win, an arbitrary
     # board.
     for board in get_next_board_options(board, 'o'):
-        value = minimax_value(board, 'o')
+        value = minimax_value(board, 'x')
         if value == 1:
             return board
     # Otherwise, use the Python misfeature that 'board' is bound to the
