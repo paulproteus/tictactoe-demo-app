@@ -69,3 +69,9 @@ def get_next_board_options(board, player):
     for space_location in space_locations:
         ret.append(board[:space_location] + player + board[space_location + 1:])
     return ret
+
+def is_playable_by_o(board):
+    o_count = board.count('o')
+    x_count = board.count('x')
+    difference = x_count - o_count
+    return (0 <= difference <= 1)

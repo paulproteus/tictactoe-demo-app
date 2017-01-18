@@ -39,3 +39,9 @@ class GameLogicTests(TestCase):
             '       o ',
             '        o',
         ])
+
+    def test_is_playable(self):
+        self.assertTrue(gamelogic.is_playable_by_o('         '))
+        self.assertFalse(gamelogic.is_playable_by_o('o        '))
+        self.assertTrue(gamelogic.is_playable_by_o('x        '))
+        self.assertFalse(gamelogic.is_playable_by_o('xx       '))
